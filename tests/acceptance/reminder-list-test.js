@@ -28,4 +28,4 @@ test('viewing the homepage redirect to /reminders and display all reminders', fu
 //     assert.equal(currentURL(), '/reminders/reminder/1');
 //     assert.equal(Ember.$('.reminder-item:first').text().trim(), Ember.$('.reminder-title').text().trim());
 //   });
-});
+// });
