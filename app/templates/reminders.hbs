@@ -1,0 +1,9 @@
+<h1>Raphael</h1>
+
+{{#each model as |reminder|}}
+  <h3 class="reminder-item">{{reminder.title}}</h3>
+  <p>{{reminder.body}}</p>
+  <p>{{reminder.date}}</p>
+{{/each}}
+
+{{outlet}}
