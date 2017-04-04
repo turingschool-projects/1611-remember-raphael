@@ -1,0 +1,11 @@
+<h1>remEMBER TMNT Rahpael</h1>
+
+{{#each model as |reminder|}}
+  <div class='reminder-item'>
+    <h3>{{reminder.title}}</h3>
+    <p>{{reminder.body}}</p>
+    <h6>{{reminder.date}}</h6>
+  </div>
+{{/each}}
+
+{{outlet}}
