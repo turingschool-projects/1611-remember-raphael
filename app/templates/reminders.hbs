@@ -1,9 +1,9 @@
 <h1>Raphael</h1>
 
 {{#each model as |reminder|}}
-  <h3 class="reminder-item">{{reminder.title}}</h3>
-  <p>{{reminder.body}}</p>
-  <p>{{reminder.date}}</p>
+  <div>
+    {{#link-to "reminders.reminder" reminder class='reminder-item'}}{{reminder.title}}{{/link-to}}
+  </div>
 {{/each}}
 
 {{outlet}}
