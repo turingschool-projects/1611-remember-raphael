@@ -34,18 +34,18 @@ test('add new reminder to the page', function(assert) {
   server.createList('reminder', 5);
 
   visit('/reminders');
-  click('.new-button');
   andThen(function() {
     assert.equal(Ember.$('.reminder-item').length, 5)
   });
-  // fillIn('.title-input', 'This is a title')
-  // fillIn('.reminder-input', 'This is a reminder')
-  // fillIn('.date-input', '12312017')
+  click('.new-button');
 
+  fillIn('.title-input', 'This is a title')
+  fillIn('.reminder-input', 'This is a reminder')
 
-  // click('.submit-btn')
+  click('.submit-btn')
 
-  // andThen(function() {
-  //   assert.equal(Ember.$('.reminder-item').length, 6)
-  // });
+  andThen(function() {
+    assert.equal(Ember.$('.reminder-item').length, 6)
+    assert.equal(Ember.$('.reminder-item:last').text(), 'This is a title')
+  });
 });
