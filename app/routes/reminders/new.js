@@ -1,11 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  actions: {
-    submitNewReminder() {
-      title: ,
-      date: ,
-      body: ,
-    }
+  model(){
+    return this.get('store').createRecord('reminder');
   }
 });
