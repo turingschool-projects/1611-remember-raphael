@@ -1,0 +1,12 @@
+<div>
+  {{input type="text" value=title placeholder='Title'}}
+  {{input type="text" value=body placeholder='Reminder body'}}
+  {{input type="date" value=date }}
+  {{button }}
+  <button {{action "submitNewReminder"}} class="submit-reminder-button" type="submit">SUBMIT</button>
+</div>
+
+
+{{input name="user.name" value=name change=(action "required")}}
+  {{input name="user.department" value=department change=(action "required")}}
+  {{input name="user.email" value=email change=(action "required")}}
