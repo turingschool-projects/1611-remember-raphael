@@ -1,9 +1,7 @@
-<div>
-  {{input class="title-input" type="text" value=model.title placeholder="Title"}}
-  {{input class="reminder-input" type="text" value=model.body placeholder="Reminder"}}
-  {{input class="date-input" type="date" value=model.date}}
-  <button class="submit-btn" {{action "storeIdea" model}}>Submit New</button>
-</div>
-
-
-<!-- {{outlet}} -->
+<form class="new-reminder-form" >
+  Title: {{input class="title-input" type="text" value=model.title placeholder="Title"}}
+  <br>
+  Body: {{input class="reminder-input" type="text" value=model.body placeholder="Reminder"}}
+  <br>
+  <button class="submit-btn" type="submit" {{action "submitReminder" model}}>Submit</button>
+</form>
