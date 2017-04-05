@@ -1,10 +1,13 @@
 <h1>Raphael</h1>
-
-{{#each model as |reminder|}}
-  <div>
-    {{#link-to "reminders.reminder" reminder class='reminder-item'}}{{reminder.title}}{{/link-to}}
-  </div>
-{{/each}}
+{{#if model}}
+  {{#each model as |reminder|}}
+    <div>
+      {{#link-to "reminders.reminder" reminder class='reminder-item'}}{{reminder.title}}{{/link-to}}
+    </div>
+  {{/each}}
+{{else}}
+  <h1 class="no-reminder-msg">No Reminders to Display</h1>
+{{/if}}
 
 {{#link-to "reminders.new" class='new-button'}}<button>Create New</button>{{/link-to}}
 

@@ -35,17 +35,28 @@ test('add new reminder to the page', function(assert) {
 
   visit('/reminders');
   andThen(function() {
-    assert.equal(Ember.$('.reminder-item').length, 5)
+    assert.equal(Ember.$('.reminder-item').length, 5);
   });
   click('.new-button');
 
-  fillIn('.title-input', 'This is a title')
-  fillIn('.reminder-input', 'This is a reminder')
+  fillIn('.title-input', 'This is a title');
+  fillIn('.reminder-input', 'This is a reminder');
 
-  click('.submit-btn')
+  click('.submit-btn');
 
   andThen(function() {
-    assert.equal(Ember.$('.reminder-item').length, 6)
-    assert.equal(Ember.$('.reminder-item:last').text(), 'This is a title')
+    assert.equal(Ember.$('.reminder-item').length, 6);
+    assert.equal(Ember.$('.reminder-item:last').text(), 'This is a title');
+  });
+});
+
+test('display No reminders header when no reminders are passed', function(assert) {
+  server.createList('reminder', 0);
+
+  visit('/reminders');
+
+  andThen(function() {
+    assert.equal(Ember.$('.reminder-item').length, 0);
+    assert.equal(Ember.$('.no-reminder-msg').text(), 'No Reminders to Display');
   });
 });
