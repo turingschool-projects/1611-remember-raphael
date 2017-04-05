@@ -29,3 +29,23 @@ test('clicking on an individual item', function(assert) {
     assert.equal(Ember.$('.reminder-item:first').text().trim(), Ember.$('.reminder-title').text().trim());
   });
 });
+
+test('add new reminder to the page', function(assert) {
+  server.createList('reminder', 5);
+
+  visit('/reminders');
+  andThen(function() {
+    assert.equal(Ember.$('.reminder-item').length, 5)
+  });
+  click('.new-button');
+
+  fillIn('.title-input', 'This is a title')
+  fillIn('.reminder-input', 'This is a reminder')
+
+  click('.submit-btn')
+
+  andThen(function() {
+    assert.equal(Ember.$('.reminder-item').length, 6)
+    assert.equal(Ember.$('.reminder-item:last').text(), 'This is a title')
+  });
+});
