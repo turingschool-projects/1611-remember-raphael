@@ -1,0 +1,9 @@
+<div>
+  {{input class="title-input" type="text" value=model.title placeholder="Title"}}
+  {{input class="reminder-input" type="text" value=model.body placeholder="Reminder"}}
+  {{input class="date-input" type="date" value=model.date}}
+  <button class="submit-btn" {{action "storeIdea" model}}>Submit New</button>
+</div>
+
+
+<!-- {{outlet}} -->
