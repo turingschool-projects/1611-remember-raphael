@@ -1,0 +1,7 @@
+<div class="reminder-card">
+  <h2 class="reminder-title">{{model.title}}</h2>
+  <p class="reminder-body">{{model.body}}</p>
+  <p class="reminder-date">{{model.date}}</p>
+</div>
+
+{{#link-to "reminders.reminder.edit" class='edit-button'}}<button>Edit reminder</button>{{/link-to}}

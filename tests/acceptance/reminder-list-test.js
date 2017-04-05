@@ -60,3 +60,22 @@ test('display No reminders header when no reminders are passed', function(assert
     assert.equal(Ember.$('.no-reminder-msg').text(), 'No Reminders to Display');
   });
 });
+
+test('edit reminders', function(assert) {
+  server.createList('reminder', 5);
+
+  visit('/reminders');
+  click('.reminder-item:first');
+
+  click('.edit-button')
+
+  fillIn('.edit-title-input', 'This is a new title');
+  fillIn('.edit-reminder-input', 'New reminder');
+
+  click('.submit-edit-button')
+
+  andThen(function() {
+    assert.equal(Ember.$('.reminder-title').text(), 'This is a new title');
+    assert.equal(Ember.$('.reminder-body').text(), 'New reminder');
+  });
+})
