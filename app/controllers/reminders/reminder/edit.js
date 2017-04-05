@@ -2,11 +2,10 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   actions: {
-    submitReminder(model) {
-      model.set('date', new Date())
+    editReminder(model) {
       model.save().then(()=> {
         this.transitionToRoute('reminders.reminder', model)
       })
-    },
+    }
   }
 });

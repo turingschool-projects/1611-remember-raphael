@@ -1,0 +1,5 @@
+<form class="new-reminder-form" >
+  Title: {{input class="edit-title-input" type="text" value=model.title placeholder="Title"}}
+  Body: {{input class="edit-reminder-input" type="text" value=model.body placeholder="Reminder"}}
+  <button class="submit-edit-button" {{action "editReminder" model}}>Submit Edit</button>
+</form>
