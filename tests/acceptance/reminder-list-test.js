@@ -92,3 +92,29 @@ test('delete reminder from main page', function(assert) {
     assert.equal(Ember.$('.reminder-item').length, 4);
   });
 })
+
+test('delete reminder from within reminder', function(assert) {
+  server.createList('reminder', 5);
+
+  visit('/reminders');
+
+  andThen(function() {
+    assert.equal(Ember.$('.reminder-item').length, 5);
+  });
+
+  click('.reminder-item:first');
+
+  andThen(function() {
+    assert.equal(Ember.$('.reminder-card').length, 1);
+  });
+
+  click('.remove-reminder:last');
+
+  andThen(function() {
+    assert.equal(Ember.$('.reminder-card').length, 0);
+  });
+
+  andThen(function() {
+    assert.equal(Ember.$('.reminder-item').length, 4);
+  });
+})
