@@ -79,3 +79,16 @@ test('edit reminders', function(assert) {
     assert.equal(Ember.$('.reminder-body').text(), 'New reminder');
   });
 })
+
+test('delete reminder from main page', function(assert) {
+  server.createList('reminder', 5);
+
+  visit('/reminders');
+  andThen(function() {
+    assert.equal(Ember.$('.reminder-item').length, 5);
+  });
+  click('.remove-reminder:first');
+  andThen(function() {
+    assert.equal(Ember.$('.reminder-item').length, 4);
+  });
+})
