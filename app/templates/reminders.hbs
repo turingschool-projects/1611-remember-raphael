@@ -3,6 +3,7 @@
   {{#each model as |reminder|}}
     <div>
       {{#link-to "reminders.reminder" reminder class='reminder-item'}}{{reminder.title}}{{/link-to}}
+      <button class="remove-reminder" {{action "removeReminder" reminder}}>Remove reminder</button>
     </div>
   {{/each}}
 {{else}}
